@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-tests:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -27,3 +27,12 @@ jobs:
     - name: Build and publish to Maven local
       working-directory: ./dev.galasa.example.banking
       run: gradle clean build publishToMavenLocal
+
+  run-galasactl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the version of galasactl
+      uses: eamansour/galasactl-action@v1
+      with:
+        galasactl_args: |-
+          --version
