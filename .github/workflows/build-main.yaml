@@ -37,14 +37,12 @@ jobs:
   run-tests-with-galasactl:
     runs-on: ubuntu-latest
     needs: build-tests
-    permissions:
-      contents: read
     steps:
     - name: Download local maven repository
       uses: actions/download-artifact@v4
       with:
         name: maven-local
-        path: ~/.m2/repository
+        path: /home/runner/.m2/repository
     - name: Get the version of galasactl
       uses: eamansour/galasactl-action@v1
       with:
