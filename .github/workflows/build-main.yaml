@@ -36,7 +36,7 @@ jobs:
 
   run-tests-with-galasactl:
     env:
-      GALASA_HOME: ${{ github.workspace }}/.galasa
+      GALASA_HOME: /home/runner/work/galasa-automation-demo/galasa-automation-demo/.galasa
     runs-on: ubuntu-latest
     needs: build-tests
     steps:
