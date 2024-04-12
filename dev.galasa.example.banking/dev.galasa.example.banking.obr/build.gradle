@@ -8,9 +8,9 @@ plugins {
 // Set the variables which will control what the built OSGi bundle will be called
 // and the name it will be published under in the maven repository.
 group = 'dev.galasa.example.banking'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
-// What are the dependencies of the obr ? 
+// What are the dependencies of the obr ?
 dependencies {
     bundle project(':dev.galasa.example.banking.account')
 }
@@ -20,7 +20,7 @@ artifacts {
     archives obrFile
 }
 
-// Tell gradle to publish the built OBR as a maven artifact on the 
+// Tell gradle to publish the built OBR as a maven artifact on the
 // local maven repository.
 publishing {
     publications {

@@ -20,9 +20,9 @@ repositories {
 // Set the variables which will control what the built OSGi bundle will be called
 // and the name it will be published under in the maven repository.
 group = 'dev.galasa.example.banking'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
-// What are the dependencies of the test code ? 
+// What are the dependencies of the test code ?
 // When more managers and dependencies are added, this list will need to grow.
 dependencies {
     implementation platform('dev.galasa:galasa-bom:0.32.0')
@@ -35,7 +35,7 @@ dependencies {
     implementation 'org.assertj:assertj-core'
 }
 
-// Tell gradle to publish the built OSGi bundles as maven artifacts on the 
+// Tell gradle to publish the built OSGi bundles as maven artifacts on the
 // local maven repository.
 publishing {
     publications {
