@@ -28,7 +28,7 @@ jobs:
       working-directory: ./dev.galasa.example.banking
       run: gradle clean build publishToMavenLocal
 
-  run-galasactl:
+  run-tests-with-galasactl:
     runs-on: ubuntu-latest
     steps:
     - name: Get the version of galasactl
@@ -36,3 +36,11 @@ jobs:
       with:
         galasactl_args: |-
           --version
+    - name: Run the dev.galasa.example.banking tests
+      uses: eamansour/galasactl-action@v1
+      with:
+        galasactl_args: |-
+          runs submit local
+          --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr
+          --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
+          --log -
