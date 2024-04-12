@@ -25,4 +25,5 @@ jobs:
         gradle-version: '6.8.2'
 
     - name: Build and publish to Maven local
+      working-directory: ./dev.galasa.example.banking
       run: gradle clean build publishToMavenLocal
