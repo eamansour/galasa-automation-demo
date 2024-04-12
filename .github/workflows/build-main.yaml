@@ -62,3 +62,8 @@ jobs:
           --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
           --localMaven file:///github/workspace/.m2/repository
           --log -
+    - name: Upload Galasa test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: galasa-ras
+        path: ${{ env.GALASA_HOME }}/ras
