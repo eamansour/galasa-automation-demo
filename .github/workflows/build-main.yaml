@@ -55,6 +55,7 @@ jobs:
       with:
         galasactl_args: |-
           local init
+          --galasahome /home/runner/work/galasa-automation-demo/galasa-automation-demo/.galasa
           --log -
     - name: Run the dev.galasa.example.banking tests
       uses: eamansour/galasactl-action@v1
@@ -64,4 +65,5 @@ jobs:
           --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1/obr
           --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
           --localMaven file://${{ github.workspace }}/.m2/repository
+          --galasahome /home/runner/work/galasa-automation-demo/galasa-automation-demo/.galasa
           --log -
