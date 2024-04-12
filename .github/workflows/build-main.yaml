@@ -31,6 +31,8 @@ jobs:
   run-tests-with-galasactl:
     runs-on: ubuntu-latest
     needs: build-tests
+    permissions:
+      contents: read
     steps:
     - name: Get the version of galasactl
       uses: eamansour/galasactl-action@v1
