@@ -70,11 +70,12 @@ jobs:
     - name: Run the dev.galasa.simbank tests
       uses: eamansour/galasactl-action@v1
       with:
-        galasactl_args: |-
-          runs submit local
-          --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr
-          --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT
-          --localMaven file:///github/workspace/.m2/repository
+        script: |-
+          /github/workspace/simplatform/run-locally.sh --server &
+          galasactl runs submit local \
+          --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr \
+          --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
+          --localMaven file:///github/workspace/.m2/repository \
           --log -
 
     - name: Upload Galasa test results
