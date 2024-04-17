@@ -54,11 +54,17 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+
     - name: Download local maven repository
       uses: actions/download-artifact@v4
       with:
         name: maven-local
         path: ${{ github.workspace }}/.m2/repository
+
+    - name: Create credentials.properties file
+      working-directory: ${{ env.GALASA_HOME }}
+      run: |-
+        echo "${{ secrets.CREDS }}" >> credentials.properties
 
     - name: Initialise a local Galasa environment
       uses: eamansour/galasactl-action@v1
