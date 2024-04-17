@@ -52,6 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-tests
     steps:
+    - uses: actions/checkout@v4
 
     - name: Download local maven repository
       uses: actions/download-artifact@v4
@@ -73,6 +74,7 @@ jobs:
           java -jar /github/workspace/.m2/repository/dev/galasa/galasa-simplatform/0.24.0/galasa-simplatform-0.24.0.jar &
 
           echo "Running SimBank tests..."
+          ls /github/workspace
           galasactl runs submit local \
           --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr \
           --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
