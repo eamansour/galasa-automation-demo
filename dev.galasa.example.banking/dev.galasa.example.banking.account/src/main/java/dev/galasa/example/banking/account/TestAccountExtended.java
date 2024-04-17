@@ -26,10 +26,10 @@ public class TestAccountExtended {
 	// The run id of this test will be injected, so we can name things using it as a prefix.
 	@RunName
     public String runName;
-	
+
 	// Where we can save files relating to this test if they help with diagnosing a problem.
 	@StoredArtifactRoot
-	public Path archivedArtifactRoot ;
+	public Path archivedArtifactRoot;
 
 	/**
 	 * Test which demonstrates that the managers have been injected ok.
@@ -45,7 +45,7 @@ public class TestAccountExtended {
 
 	@Test
     public void testRetrieveBundleResourceFileAsStringMethod() throws Exception {
-		
+
 		// The path to the file we want to load. Relative to the src/main/resources folder.
 		String resourcePathInBundle = "/textfiles/sampleText.txt";
 
@@ -54,7 +54,7 @@ public class TestAccountExtended {
 
         assertThat(textContent.trim()).isEqualTo("This content is read from a bundle resource file.");
     }
-	
+
 	@Test
 	public void testStoreFileInResultsArchiveStore() throws Exception {
 
