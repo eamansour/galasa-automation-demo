@@ -25,7 +25,7 @@ jobs:
         gradle-version: '6.8.2'
 
     - name: Build and publish to Maven local
-      working-directory: ./dev.galasa.example.banking
+      working-directory: ./dev.galasa.simbank
       run: gradle clean build publishToMavenLocal
 
     - name: Upload local maven repository
@@ -42,26 +42,41 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-tests
     steps:
+
+    - name: Clone the simplatform repository
+      uses: actions/checkout@v4
+      with:
+        repository: eamansour/simplatform
+        path: ${{ github.workspace }}/simplatform
+
+    - name: Build SimBank application
+      working-directory: ${{ github.workspace }}/simplatform
+      run: |
+        ./build-locally.sh
+
     - name: Download local maven repository
       uses: actions/download-artifact@v4
       with:
         name: maven-local
         path: ${{ github.workspace }}/.m2/repository
+
     - name: Initialise a local Galasa environment
       uses: eamansour/galasactl-action@v1
       with:
         galasactl_args: |-
           local init
           --log -
-    - name: Run the dev.galasa.example.banking tests
+
+    - name: Run the dev.galasa.simbank tests
       uses: eamansour/galasactl-action@v1
       with:
         galasactl_args: |-
           runs submit local
-          --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1/obr
-          --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
+          --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr
+          --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT
           --localMaven file:///github/workspace/.m2/repository
           --log -
+
     - name: Upload Galasa test results
       uses: actions/upload-artifact@v4
       with:

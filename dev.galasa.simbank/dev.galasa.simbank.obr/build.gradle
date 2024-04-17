@@ -1,0 +1,32 @@
+// This section tells gradle which gradle plugins to use to build this project.
+plugins {
+    id 'base'
+    id 'maven-publish'
+    id 'dev.galasa.obr' version '0.15.0'
+}
+
+// Set the variables which will control what the built OSGi bundle will be called
+// and the name it will be published under in the maven repository.
+group = 'dev.galasa.simbank'
+version = '0.0.1'
+
+// What are the dependencies of the obr ?
+dependencies {
+    bundle project(':dev.galasa.simbank.tests')
+    bundle project(':dev.galasa.simbank.manager')
+}
+
+def obrFile = file('build/galasa.obr')
+artifacts {
+    archives obrFile
+}
+
+// Tell gradle to publish the built OBR as a maven artifact on the
+// local maven repository.
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact obrFile
+        }
+    }
+}

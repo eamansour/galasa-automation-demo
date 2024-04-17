@@ -1,3 +1,23 @@
+# Ignore local Galasa home changes
+**/ras/
+**/lib/
+credentials.properties
+galasactl.properties
+bootstrap.properties
+overrides.properties
+dss.properties
+
+# Ignore vscode user settings
+**/.vscode/
+
+# Ignore Mac metadata files.
+**/.DS_Store
+
+# Ignore anything built by gradle
+**/build/
+**/.gradle/
+**/target/
+
 # Compiled class file
 *.class
 

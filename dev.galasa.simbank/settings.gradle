@@ -1,0 +1,14 @@
+
+// Tell gradle where it should look to find the plugins and dependencies it needs to build.
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+// Tell gradle to build the sub-projects in child folders
+include 'dev.galasa.simbank.tests'
+include 'dev.galasa.simbank.manager'
+include 'dev.galasa.simbank.obr'
