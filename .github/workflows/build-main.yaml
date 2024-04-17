@@ -71,7 +71,7 @@ jobs:
       uses: eamansour/galasactl-action@v1
       with:
         script: |-
-          /github/workspace/simplatform/run-locally.sh --server &
+          java -jar /github/workspace/.m2/repository/dev/galasa/galasa-simplatform/0.24.0/galasa-simplatform-0.24.0.jar &
           galasactl runs submit local \
           --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr \
           --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
