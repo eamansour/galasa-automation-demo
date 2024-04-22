@@ -33,6 +33,7 @@ public class SimBankTerminalImpl extends Zos3270TerminalImpl implements ISimBank
     private final ICredentialsUsernamePassword credentials;
     private final String                       application;
 
+    @SuppressWarnings("removal")
     public SimBankTerminalImpl(String id, String host, String application, ICredentialsUsernamePassword credentials,
             int port, boolean tls, IFramework framework, boolean autoConnect, IZosImage zosImage, ITextScannerManagerSpi textScanner) throws Zos3270ManagerException, TerminalInterruptedException {
         super(id, host, port, tls, framework, autoConnect, zosImage, textScanner);

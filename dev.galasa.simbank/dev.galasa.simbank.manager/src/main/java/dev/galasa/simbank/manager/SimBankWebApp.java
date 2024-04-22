@@ -11,7 +11,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 
 import dev.galasa.framework.spi.ValidAnnotatedFields;
-import dev.galasa.simbank.manager.ISimBankWebApp;
 import dev.galasa.simbank.manager.internal.SimBankManagerField;
 
 @Retention(RetentionPolicy.RUNTIME)

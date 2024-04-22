@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.osgi.service.component.annotations.Component;
 
-import dev.galasa.framework.spi.IConfigurationPropertyStoreService;
 import dev.galasa.framework.spi.IDynamicStatusStoreService;
 import dev.galasa.framework.spi.IFramework;
 import dev.galasa.framework.spi.IResourceManagement;
