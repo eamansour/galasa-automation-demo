@@ -27,7 +27,7 @@ import dev.galasa.zos3270.ITerminal;
 import dev.galasa.zos3270.Zos3270Terminal;
 
 @Test
-public class BasicAccountCreditTest {
+public class AccountCreditTest {
 
     @SimBank
     public ISimBank simBank;
