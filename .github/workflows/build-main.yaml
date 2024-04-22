@@ -94,8 +94,8 @@ jobs:
 
           galasactl runs submit local \
           --obr mvn:dev.galasa.simbank/dev.galasa.simbank.obr/0.0.1/obr \
-          --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.AccountCreditTest \
           --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
+          --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.AccountCreditTest \
           --localMaven file:///github/workspace/.m2/repository \
           --log -
 
