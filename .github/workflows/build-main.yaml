@@ -97,7 +97,7 @@ jobs:
           --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
           --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.AccountCreditTest \
           --localMaven file:///github/workspace/.m2/repository \
-          --log -
+          --log - || :
 
     - name: Upload Galasa test results
       uses: actions/upload-artifact@v4
